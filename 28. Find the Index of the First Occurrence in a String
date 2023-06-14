@@ -1,0 +1,8 @@
+class Solution:
+    def strStr(self, h: str, n: str) -> int:
+        a=len(n)
+        for i in range(len(h)):
+            if(h[i]==n[0]):
+                if(h[i:i+a]==n):
+                    return i
+        return -1
