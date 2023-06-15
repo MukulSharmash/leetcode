@@ -1,0 +1,29 @@
+class Solution:
+    def spiralOrder(self, m: List[List[int]]) -> List[int]:
+        sr=0
+        sc=0
+        er=len(m)-1
+        ec=len(m[0])-1
+        l=[]
+        while(sr<=er and sc<=ec):
+            for i in range(sc,ec+1):
+                l.append(m[sr][i])
+            sr+=1
+            if(sr>er):
+                break
+            for i in range(sr,er+1):
+                l.append(m[i][ec])
+            ec-=1
+            if(ec<sc):
+                break
+            for i in range(ec,sc-1,-1):
+                l.append(m[er][i])
+            er-=1
+            if(er<sr):
+                break
+            for i in range(er,sr-1,-1):
+                l.append(m[i][sc])
+            sc+=1
+            if(sc>ec):
+                break
+        return l
