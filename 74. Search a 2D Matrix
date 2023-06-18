@@ -1,0 +1,16 @@
+class Solution:
+    def searchMatrix(self, ma: List[List[int]], target: int) -> bool:
+        r=len(ma)
+        c=len(ma[0])
+        s=0
+        e=r*c-1
+        m=s+(e-s)//2
+        while(s<=e):
+            if(ma[m//c][m%c]==target):
+                return True
+            elif(target<ma[m//c][m%c]):
+                e=m-1
+            else:
+                s=m+1      
+            m=s+(e-s)//2
+        return False
