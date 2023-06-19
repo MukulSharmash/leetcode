@@ -1,0 +1,28 @@
+class Solution:
+    def search(self, nums: List[int], t: int) -> bool:
+        nums=list(set(nums))
+        s=0
+        e=len(nums)
+        m=s+(e-s)//2
+        while(s<e):
+            if(nums[0]<=nums[m]):
+                s=m+1
+            else:
+                e=m
+            m=s+(e-s)//2
+        p=s
+        if(t>=nums[0]):
+            s=0
+            e=p-1
+        else:
+            e=len(nums)-1
+        m=s+(e-s)//2
+        while(s<=e):
+            if(t==nums[m]):
+                return True
+            elif(t<nums[m]):
+                e=m-1
+            else:
+                s=m+1
+            m=s+(e-s)//2
+        return False
