@@ -1,0 +1,15 @@
+class Solution:
+    def generate(self, n: int) -> List[List[int]]:
+        l=[]
+        for i in range(n):
+            a=[]
+            for j in range(i+1):
+                a.append(0)
+            l.append(a)
+        for i in range(n):
+            for j in range(i+1):
+                if(j==0 or j==i):
+                    l[i][j]=1
+                else:
+                    l[i][j]=l[i-1][j]+l[i-1][j-1]
+        return l
