@@ -1,0 +1,9 @@
+class Solution:
+    def isPowerOfThree(self, n: int) -> bool:
+        def po(n):
+            if(n==1):
+                return True
+            if(n%3!=0 or n<1):
+                return False
+            return po(n/3)
+        return po(n)
