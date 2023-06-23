@@ -1,0 +1,35 @@
+class Solution:
+    def evalRPN(self, t: List[str]) -> int:
+        l=[]
+        if(len(t)==1):
+            return int(t[0])
+        l.append(t[0])
+        l.append(t[1])
+        for i in range(2,len(t)):
+            c=len(l)-1
+            a=int(l[c-1])
+            b=int(l[c])
+            if(t[i]=="+"):
+                d=a+b
+                l.pop()
+                l.pop()
+                l.append(d)
+            elif(t[i]=="-"):
+                d=a-b
+                l.pop()
+                l.pop()
+                l.append(d)
+            elif(t[i]=="*"):
+                d=a*b
+                l.pop()
+                l.pop()
+                l.append(d)
+            elif(t[i]=="/"):
+                d=int(a/b)
+                l.pop()
+                l.pop() 
+                l.append(d)   
+            else:
+                l.append(t[i])
+        
+        return l[0]
