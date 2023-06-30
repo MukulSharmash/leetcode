@@ -1,0 +1,18 @@
+class Solution:
+    def isHappy(self, n: int) -> bool:
+        a=[]
+        while(n!=1 ):
+            l=[]
+            while(n>0):
+                l.append(n%10)
+                n=n//10
+            l.reverse()
+            for i in l:
+                n=n+(i**2)
+            if(n in a):
+                return False
+            else:
+                a.append(n)
+        
+        return True
+        
